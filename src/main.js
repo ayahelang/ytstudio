@@ -1,10 +1,12 @@
-import Router from "./router/router.js";
+import Router from "./js/router/router.js";
 import AuthService from "./js/services/auth.service.js";
 
 window.addEventListener("DOMContentLoaded",async()=>{
-
-    await AuthService.restoreSession();
-
-    Router.start();
-
+    try{
+        if(AuthService.restoreSession){
+            await AuthService.restoreSession();
+        }
+    }catch(error){
+        console.error(error);
+    }
 });
