@@ -1,16 +1,17 @@
 const Router={
+
     go(page){
-        window.location.href=`../pages/${page}.html`;
+        window.location.href=`./${page}.html`;
     },
+
     replace(page){
-        window.location.replace(`../pages/${page}.html`);
+        window.location.replace(`./${page}.html`);
     },
+
     current(){
-        const file=window.location.pathname.split("/").pop();
-        return file.replace(".html","");
-    },
-    is(page){
-        return this.current()===page;
+        return location.pathname.split("/").pop().replace(".html","");
     }
+
 };
+
 export default Router;
